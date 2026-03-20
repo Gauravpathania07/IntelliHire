@@ -25,6 +25,12 @@ const syncUser=inngest.createFunction(
             name:newUser.name,
             image:newUser.profileImage,
         });
+
+        /**
+         * To do
+         *  * send a welcome email to the registered user!
+         */
+        
     }
 )
 
@@ -38,6 +44,12 @@ const deleteUserFromDB=inngest.createFunction(
         const {id}= event.data
         await User.deleteOne({clerkId:id});
         await deleteStreamUser(id.toString());
+
+        /**
+         * To do
+         *  * send a email to the deleted user!
+         */
     }
+
 )
 export const functions=[syncUser, deleteUserFromDB]
