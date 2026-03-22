@@ -23,14 +23,13 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.4.0",
+    "lucide-react": "^0.577.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-hot-toast": "^2.6.0",
     "react-router": "^7.9.4",
     "tailwindcss": "^4.1.14",
-    "vite": "^7.1.7"
-  },
-  "devDependencies": {
+    "vite": "^7.1.7",
     "daisyui": "^5.3.10"
   }
 }
