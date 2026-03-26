@@ -1,10 +1,10 @@
-export default function OutputPanel({ output }) {
+export default function OutputPanel({ output ,expectedOutput}) {
   return (
     <div className="h-full bg-base-100 flex flex-col">
       <div className="px-4 py-2 bg-base-200 border-b border-base-300 font-semibold text-sm">
         Output
       </div>
-      <div className="flex-1 overflow-auto p-4">
+      <div className="flex-1 overflow-auto p-4 grid grid-cols-2 gap-4">
         {output === null ? (
           <p className="text-base-content/50 text-sm">Click "Run Code" to see the output here...</p>
         ) : output.success ? (
@@ -19,6 +19,15 @@ export default function OutputPanel({ output }) {
             <pre className="text-sm font-mono text-error whitespace-pre-wrap">{output.error}</pre>
           </div>
         )}
+        {/* ✅ Expected Output */}
+            {expectedOutput && (
+              <div>
+                <p className="text-xs font-semibold mb-1">Expected Output:</p>
+                <pre className="text-sm font-mono text-info whitespace-pre-wrap">
+                  {expectedOutput}
+                </pre>
+              </div>
+            )}
       </div>
     </div>
   );

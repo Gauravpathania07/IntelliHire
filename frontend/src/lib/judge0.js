@@ -1,6 +1,8 @@
 // Judge0 API is a service for code execution
 
-const JUDGE0_API = "https://judge0-extra-ce1.p.rapidapi.com/submissions/batch?base64_encoded=true";
+
+//  const JUDGE0_API = "https://judge0-extra-ce1.p.rapidapi.com/submissions/batch?base64_encoded=true";  ---> its for judge0 extra ce RapidApi
+const JUDGE0_API = "https://ce.judge0.com/submissions?base64_encoded=false&wait=true";
 
 const LANGUAGE_VERSIONS = {
   javascript: { language: "javascript", version: "18.15.0" ,id:63},
@@ -26,6 +28,7 @@ export async function executeCode(language, code) {
     }
 
 
+    /*
     const response = await fetch(JUDGE0_API, {
       method: "POST",
       headers: {
@@ -41,7 +44,20 @@ export async function executeCode(language, code) {
       }
     ]
   }),
-    });
+    }); */
+
+    const response = await fetch(JUDGE0_API,
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      source_code: code,
+      language_id: languageConfig.id
+    })
+  }
+);
 
 
 

@@ -50,7 +50,8 @@ export async function getActiveSessions(_,res){
     try{
         const sessions = await sessionModel
           .find({ status: "active" })
-          .populate("host", "name profileImage email clerkId")     // adds fields of user into host basically takesout exact values of the host 
+          .populate("host", "name profileImage email clerkId")  
+          .populate("participant", "name profileImage email clerkId")     // adds fields of user into host basically takesout exact values of the host 
           .sort({ createdAt: -1 })                                 // sorts in descending order the fetched values...can be either 1,-1
           .limit(20);                                             // only first 20 not all
           res.status(200).json({
