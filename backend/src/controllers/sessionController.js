@@ -193,6 +193,8 @@ export async function endSession(req,res){
         session.status="completed"
         await session.save();
 
+        res.status(200).json({ session, message: "Session ended successfully" });
+
     }catch(err){
         console.log("Error in endSession controller",err.message);
         res.status(500).json({
