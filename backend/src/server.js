@@ -20,6 +20,7 @@ app.use(express.json());
 //server allows browser cookies in req ...by using credentials true
 app.use(cors({origin:ENV.CLIENT_URL, credentials:true}));
 
+
 app.use("/api/inngest", serve({client:inngest, functions}))
 // this adds an auth field to request object: req.auth()
 app.use(clerkMiddleware())

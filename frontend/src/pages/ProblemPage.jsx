@@ -144,7 +144,7 @@ export default function ProblemPage() {
               {/* Bottom panel - Output Panel*/}
 
               <Panel defaultSize={30} minSize={30}>
-                <OutputPanel output={output} />
+                <OutputPanel output={output} expectedOutput={currentProblem.expectedOutput[selectedLanguage]}/>
               </Panel>
             </PanelGroup>
           </Panel>
